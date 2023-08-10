@@ -1,0 +1,97 @@
+import 'package:flutter/material.dart';
+import 'package:habito_meter/intro_screens/intro_page_1.dart';
+import 'package:habito_meter/intro_screens/intro_page_2.dart';
+import 'package:habito_meter/intro_screens/intro_page_3.dart';
+import 'package:habito_meter/pages/home_page.dart';
+//import 'package:shared_preferences/shared_preferences.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
+class OnBoardingScreen extends StatefulWidget {
+  const OnBoardingScreen({super.key});
+
+  @override
+  State<OnBoardingScreen> createState() => _OnBoardingScreenState();
+}
+
+class _OnBoardingScreenState extends State<OnBoardingScreen> {
+  bool onLastPage = false;
+  PageController _controller = PageController();
+
+  //late final SharedPreferences prefs;
+  //late final String boolKey;
+  @override
+  Widget build(BuildContext context) {
+    //prefs.setBool(boolKey, false);
+    return Scaffold(
+        body: Stack(
+      children: [
+        PageView(
+          onPageChanged: (index) {
+            setState(() {
+              onLastPage = (index == 2);
+            });
+          },
+          controller: _controller,
+          children: [
+            IntroPage1(),
+            IntroPage2(),
+            IntroPage3(),
+          ],
+        ),
+
+        //dot indicator
+        Container(
+            alignment: Alignment(0, 0.75),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                //skip
+                GestureDetector(
+                    onTap: () {
+                      _controller.animateToPage(2,
+                          duration: Duration(milliseconds: 500),
+                          curve: Curves.easeIn);
+                    },
+                    child: Text(
+                      'Skip',
+                      style: TextStyle(fontSize: 18),
+                    )),
+
+                SmoothPageIndicator(
+                  controller: _controller,
+                  count: 3,
+                  effect: ExpandingDotsEffect(
+                    activeDotColor: Colors.amber,
+                    dotColor: Colors.grey.shade200,
+                  ),
+                ),
+
+                //next
+                onLastPage
+                    ? GestureDetector(
+                        onTap: () {
+                          Navigator.pushReplacement(context,
+                              MaterialPageRoute(builder: (context) {
+                            return HomePage();
+                          }));
+                        },
+                        child: Text(
+                          'Done',
+                          style: TextStyle(fontSize: 18),
+                        ))
+                    : GestureDetector(
+                        onTap: () {
+                          _controller.nextPage(
+                              duration: Duration(milliseconds: 500),
+                              curve: Curves.easeIn);
+                        },
+                        child: Text(
+                          ' Next',
+                          style: TextStyle(fontSize: 18),
+                        )),
+              ],
+            ))
+      ],
+    ));
+  }
+}
