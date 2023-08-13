@@ -25,6 +25,13 @@ dependencies:
 flutter_native_splash:
   color: "#000000"
 
+fonts:
+  - family: Gotham
+    fonts: 
+      - assets: habito_meter\assets\fonts\GothamMedium.ttf
+      - assets: habito_meter\assets\fonts\GothamBold.ttf
+      - assets: habito_meter\assets\fonts\GothamBook.ttf
+
 
 dev_dependencies:
   flutter_test:
