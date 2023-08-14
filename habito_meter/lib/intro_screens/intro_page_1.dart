@@ -44,7 +44,9 @@ class _IntroPage1State extends State<IntroPage1>
             child: Center(
                 child: Text(
               'Create new habits',
-              style: TextStyle(fontFamily: 'GothamMedium', fontSize: 18),
+              style: TextStyle(
+                  //fontFamily: 'GothamMedium',
+                  fontSize: 18),
             )),
           ),
         ],

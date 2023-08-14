@@ -19,7 +19,9 @@ class IntroPage2 extends StatelessWidget {
           ),
           Center(
               child: Text('Get them done',
-                  style: TextStyle(fontFamily: 'GothamMedium', fontSize: 18))),
+                  style: TextStyle(
+                      //fontFamily: 'GothamMedium',
+                      fontSize: 18))),
         ],
       ),
     );
