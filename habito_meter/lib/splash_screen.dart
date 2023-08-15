@@ -26,6 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   late VideoPlayerController _controller;
 
+  @override
   void initState() {
     super.initState();
     _controller = VideoPlayerController.asset('assets/habitoMeter.mp4')
@@ -57,7 +58,7 @@ class _SplashScreenState extends State<SplashScreen> {
       // body: Container(
       //   color: Colors.black,
       //   child: Center(
-      //     child: Lottie.asset('animations/logo.json', repeat: false),
+      //     child: Lottie.asset('assets\logo.json', repeat: false),
       //   ),
       // ),
 
