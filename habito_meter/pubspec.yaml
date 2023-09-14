@@ -23,6 +23,7 @@ dependencies:
 
 flutter_native_splash:
   color: "#000000"
+  animations: habito_meter\animations\finalLogo.json
   
 fonts:
   - family: Gotham
@@ -54,3 +55,4 @@ flutter:
   uses-material-design: true
   assets:
     - animations/
+  

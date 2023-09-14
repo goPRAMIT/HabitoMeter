@@ -37,7 +37,6 @@ class _HomePageState extends State<HomePage> {
       //BoxDecoration(color: Colors.amber[100]);
       //new ListTileTheme(selectedColor: Colors.amber[100],);
     });
-
     db.updateDatabase();
   }
 
@@ -108,8 +107,9 @@ class _HomePageState extends State<HomePage> {
         body: ListView(
           children: [
             MonthlySummary(
-                datasets: db.heatMapDataSet,
-                startDate: _myBox.get("START_DATE")),
+              datasets: db.heatMapDataSet,
+              startDate: _myBox.get("START_DATE"),
+            ),
             ListView.builder(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),

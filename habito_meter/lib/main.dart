@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-//import 'package:habito_meter/onboarding_screen.dart';
-import 'package:habito_meter/splash_screen.dart';
+import 'package:habito_meter/onboarding_screen.dart';
+//import 'package:habito_meter/splash_screen.dart';
 //import 'package:habito_meter/splash_screen.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      home: OnBoardingScreen(),
       theme: ThemeData(primarySwatch: Colors.amber, fontFamily: 'GothamMedium'),
     );
   }

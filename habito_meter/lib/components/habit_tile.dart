@@ -1,3 +1,5 @@
+//import 'dart:html';
+
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
@@ -41,14 +43,18 @@ class HabitTile extends StatelessWidget {
         child: Container(
           padding: EdgeInsets.all(24),
           decoration: BoxDecoration(
-              color: Color.fromARGB(255, 255, 255, 255),
+              color: habitCompleted == true
+                  ? Color.fromARGB(121, 253, 211, 84)
+                  : Color.fromARGB(255, 255, 255, 255),
               borderRadius: BorderRadius.circular(12)),
           child: Row(
-            //mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Checkbox(
                 value: habitCompleted,
                 onChanged: onChanged,
+                //onChanged: ColorSwatch: isSelected ? Colors.amber[200] : null,
+                //activeColor: Colors.white,
+                //checkColor: Colors.amber[200],
               ),
               Text(habitName),
               Spacer(),
@@ -56,7 +62,6 @@ class HabitTile extends StatelessWidget {
                 EvaIcons.chevronLeftOutline,
                 color: Colors.grey[800],
               ),
-              //SlideAction(),
             ],
           ),
         ),

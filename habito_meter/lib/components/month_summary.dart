@@ -17,8 +17,21 @@ class MonthlySummary extends StatelessWidget {
       padding: const EdgeInsets.only(top: 25, bottom: 25),
       child: HeatMapCalendar(
         initDate: createDateTimeObject(startDate),
+        //initDate: DateTime.now(),
         //endDate: DateTime.now().add(Duration(days: 31)),
         datasets: datasets,
+        // datasets: {
+        //   DateTime(2023, 9, 1): 3,
+        //   DateTime(2023, 9, 2): 2,
+        //   DateTime(2023, 9, 3): 6,
+        //   DateTime(2023, 9, 4): 0,
+        //   DateTime(2023, 9, 5): 1,
+        //   DateTime(2023, 9, 6): 3,
+        //   DateTime(2023, 9, 7): 8,
+        //   DateTime(2023, 9, 8): 6,
+        //   DateTime(2023, 9, 9): 10,
+        //   DateTime(2023, 9, 10): 5,
+        // },
         colorMode: ColorMode.color,
         defaultColor: Colors.grey[200],
         textColor: Colors.grey[850],
@@ -30,7 +43,7 @@ class MonthlySummary extends StatelessWidget {
         flexible: false,
         monthFontSize: 16,
         size: 30,
-        colorsets: const {
+        colorsets: {
           1: Color.fromARGB(40, 255, 193, 8),
           2: Color.fromARGB(60, 255, 193, 8),
           3: Color.fromARGB(80, 255, 193, 8),
