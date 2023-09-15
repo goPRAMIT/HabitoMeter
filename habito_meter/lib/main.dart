@@ -1,22 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:habito_meter/onboarding_screen.dart';
-//import 'package:habito_meter/splash_screen.dart';
-//import 'package:habito_meter/splash_screen.dart';
+import 'package:habito_meter/pages/home_page.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+//import 'package:google_fonts/google_fonts.dart';
 
-//int initScreen;
+int? isViewed;
 
 Future<void> main() async {
   await Hive.initFlutter();
   await Hive.openBox("Habit_Database");
-  // WidgetsFlutterBinding.ensureInitialized();
-  // var prefs = await SharedPreferences.getInstance();
-  // var boolKey = 'isFirstTime';
-  // var isFirstTime = prefs.getBool(boolKey) ?? true;
-  //initScreen = await preferences.getInt('initScreen');
-  //await preferences.setInt('initScreen', 1);
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  isViewed = prefs.getInt('onboarding_screen');
   runApp(const MyApp());
-  //runApp(MaterialApp(home: isFirstTime? OnBoardingScreen(prefs, boolKey) : HomePage(),));
 }
 
 class MyApp extends StatelessWidget {
@@ -24,10 +22,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: OnBoardingScreen(),
-      theme: ThemeData(primarySwatch: Colors.amber, fontFamily: 'GothamMedium'),
-    );
+        debugShowCheckedModeBanner: false,
+        home: isViewed != 0 ? OnBoardingScreen() : HomePage(),
+        theme: ThemeData(
+          primarySwatch: Colors.amber,
+          textTheme: GoogleFonts.cutiveTextTheme(textTheme).copyWith(
+              bodyMedium:
+                  GoogleFonts.comfortaa(textStyle: textTheme.bodyMedium)),
+        ));
   }
 }

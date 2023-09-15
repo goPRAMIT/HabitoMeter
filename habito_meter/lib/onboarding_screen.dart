@@ -3,6 +3,7 @@ import 'package:habito_meter/intro_screens/intro_page_1.dart';
 import 'package:habito_meter/intro_screens/intro_page_2.dart';
 import 'package:habito_meter/intro_screens/intro_page_3.dart';
 import 'package:habito_meter/pages/home_page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 //import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -19,6 +20,13 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
 
   //late final SharedPreferences prefs;
   //late final String boolKey;
+
+  _storeOnBoardInfo() async {
+    int isViewed = 0;
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setInt('onboarding_screen', isViewed);
+  }
+
   @override
   Widget build(BuildContext context) {
     //prefs.setBool(boolKey, false);
@@ -45,16 +53,40 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
+                // Container(
+                //   decoration: BoxDecoration(
+                //     border: Border.all(),
+                //   ),
+
+                // ),
+
                 //skip
                 GestureDetector(
-                    onTap: () {
+                    onTap: () async {
                       _controller.animateToPage(2,
                           duration: Duration(milliseconds: 500),
                           curve: Curves.easeIn);
+                      await _storeOnBoardInfo();
                     },
-                    child: Text(
-                      'Skip',
-                      style: TextStyle(fontSize: 18),
+                    // child: Text(
+                    //   'Skip',
+                    //   style: TextStyle(fontSize: 18),
+                    // )),
+
+                    child: Container(
+                      //margin: const EdgeInsets.all(30.0),
+                      //padding: const EdgeInsets.all(10.0),
+                      decoration: BoxDecoration(
+                          color: Colors.grey[400],
+                          border: Border.all(),
+                          borderRadius: BorderRadius.circular(20)),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          'Skip',
+                          style: TextStyle(fontSize: 18),
+                        ),
+                      ),
                     )),
 
                 SmoothPageIndicator(
@@ -69,15 +101,25 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 //next
                 onLastPage
                     ? GestureDetector(
-                        onTap: () {
+                        onTap: () async {
+                          await _storeOnBoardInfo();
                           Navigator.pushReplacement(context,
                               MaterialPageRoute(builder: (context) {
                             return HomePage();
                           }));
                         },
-                        child: Text(
-                          'Done',
-                          style: TextStyle(fontSize: 18),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              color: Colors.grey[400],
+                              border: Border.all(),
+                              borderRadius: BorderRadius.circular(20)),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              'Done',
+                              style: TextStyle(fontSize: 18),
+                            ),
+                          ),
                         ))
                     : GestureDetector(
                         onTap: () {
@@ -85,9 +127,18 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                               duration: Duration(milliseconds: 500),
                               curve: Curves.easeIn);
                         },
-                        child: Text(
-                          ' Next',
-                          style: TextStyle(fontSize: 18),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              color: Colors.grey[400],
+                              border: Border.all(),
+                              borderRadius: BorderRadius.circular(20)),
+                          child: Padding(
+                            padding: const EdgeInsets.fromLTRB(9, 8, 9, 8),
+                            child: Text(
+                              ' Next',
+                              style: TextStyle(fontSize: 18),
+                            ),
+                          ),
                         )),
               ],
             ))

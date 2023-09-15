@@ -5,6 +5,7 @@ import 'package:habito_meter/components/month_summary.dart';
 import 'package:habito_meter/components/my_fab.dart';
 import 'package:habito_meter/components/new_alert_box.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+//import 'package:tutorial_coach_mark/tutorial_coach_mark.dart';
 //import 'package:habito_meter/components/new_habit_box.dart';
 
 class HomePage extends StatefulWidget {
@@ -18,10 +19,19 @@ class _HomePageState extends State<HomePage> {
   HabitDatabase db = HabitDatabase();
   final _myBox = Hive.box("Habit_Database");
 
+  // TutorialCoachMark tutorialCoachMark;
+  // List<TargetFocus> targets = List();
+
+  // GlobalKey key1 = GlobalKey();
+  // GlobalKey key2 = GlobalKey();
+  // GlobalKey key3 = GlobalKey();
+  // GlobalKey key4 = GlobalKey();
+  // GlobalKey key5 = GlobalKey();
+
   @override
   void initState() {
     if (_myBox.get("CURRENT_HABIT_LIST") == null) {
-      db.createDefautlData();
+      db.createDefaultData();
     } else {
       db.loadData();
     }

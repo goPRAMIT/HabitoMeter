@@ -10,7 +10,10 @@ class MyFloatingActionButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return FloatingActionButton(
       onPressed: onPressed,
-      child: Icon(EvaIcons.fileAddOutline),
+      child: Icon(
+        EvaIcons.fileAddOutline,
+        color: Colors.black,
+      ),
     );
   }
 }

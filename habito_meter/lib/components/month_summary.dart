@@ -43,7 +43,7 @@ class MonthlySummary extends StatelessWidget {
         flexible: false,
         monthFontSize: 16,
         size: 30,
-        colorsets: {
+        colorsets: const {
           1: Color.fromARGB(40, 255, 193, 8),
           2: Color.fromARGB(60, 255, 193, 8),
           3: Color.fromARGB(80, 255, 193, 8),

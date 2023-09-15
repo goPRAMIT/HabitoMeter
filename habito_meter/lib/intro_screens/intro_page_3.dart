@@ -11,19 +11,33 @@ class IntroPage3 extends StatelessWidget {
       body: ListView(
         children: [
           Padding(
-            padding: const EdgeInsets.fromLTRB(0, 250, 0, 0),
+            padding: const EdgeInsets.fromLTRB(60, 150, 60, 40),
+            child: Center(
+                child: Text(
+              'Track your habits',
+              style: TextStyle(
+                  //fontFamily: 'GothamMedium',
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold),
+            )),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 15, 0, 0),
             child: Lottie.asset(
               'animations/3.json',
               repeat: true,
             ),
           ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(60, 120, 60, 60),
+            padding: const EdgeInsets.fromLTRB(60, 95, 60, 60),
             child: Center(
-                child: Text('Track your habits',
-                    style: TextStyle(
-                        //fontFamily: 'GothamMedium',
-                        fontSize: 18))),
+                child: Text(
+              'Visualize your progress in the calendar. Habito makes it easy to see how you\'re doing and where you\'re headed.',
+              style: TextStyle(
+                  //fontFamily: 'GothamMedium',
+                  fontSize: 15),
+              textAlign: TextAlign.center,
+            )),
           ),
         ],
       ),

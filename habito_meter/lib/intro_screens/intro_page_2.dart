@@ -11,17 +11,34 @@ class IntroPage2 extends StatelessWidget {
       body: ListView(
         children: [
           Padding(
-            padding: const EdgeInsets.fromLTRB(60.0, 220.0, 60.0, 60.0),
+            padding: const EdgeInsets.fromLTRB(60, 150, 60, 20),
+            child: Center(
+                child: Text(
+              'Get them done',
+              style: TextStyle(
+                  //fontFamily: 'GothamMedium',
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold),
+            )),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(60.0, 10.0, 60.0, 20.0),
             child: Lottie.asset(
               'animations/2.json',
               repeat: false,
             ),
           ),
           Center(
-              child: Text('Get them done',
-                  style: TextStyle(
-                      //fontFamily: 'GothamMedium',
-                      fontSize: 18))),
+              child: Padding(
+            padding: const EdgeInsets.fromLTRB(60.0, 10.0, 60.0, 60.0),
+            child: Text(
+                'Are you ready to achieve your goals? Here\'s Habito for you to check-off your habits once you get them done.',
+                style: TextStyle(
+                  //fontFamily: 'GothamMedium',
+                  fontSize: 15,
+                ),
+                textAlign: TextAlign.center),
+          )),
         ],
       ),
     );
