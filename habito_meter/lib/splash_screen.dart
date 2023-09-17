@@ -5,7 +5,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:habito_meter/onboarding_screen.dart';
 import 'package:lottie/lottie.dart';
-//import 'package:lottie/lottie.dart';
 //import 'package:video_player/video_player.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -20,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
 
-    Timer(Duration(milliseconds: 2550), () {
+    Timer(Duration(milliseconds: 5000), () {
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
         return OnBoardingScreen();
       }));
@@ -58,12 +57,11 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       body: Container(
-        color: Colors.black,
+        //color: Colors.black,
         child: Center(
-          child: Lottie.network(
-              'https://lottie.host/2692e8d1-64d2-4815-818b-0c25c3c88b00/rZgxXI7zQs.json',
-              repeat: false),
+          child: Lottie.asset('animations/finalLogo.json', repeat: false),
         ),
       ),
 

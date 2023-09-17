@@ -4,7 +4,9 @@ import 'package:habito_meter/components/habit_tile.dart';
 import 'package:habito_meter/components/month_summary.dart';
 import 'package:habito_meter/components/my_fab.dart';
 import 'package:habito_meter/components/new_alert_box.dart';
+//import 'package:habito_meter/generated_routes.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+//import 'package:showcaseview/showcaseview.dart';
 //import 'package:tutorial_coach_mark/tutorial_coach_mark.dart';
 //import 'package:habito_meter/components/new_habit_box.dart';
 
@@ -18,15 +20,6 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   HabitDatabase db = HabitDatabase();
   final _myBox = Hive.box("Habit_Database");
-
-  // TutorialCoachMark tutorialCoachMark;
-  // List<TargetFocus> targets = List();
-
-  // GlobalKey key1 = GlobalKey();
-  // GlobalKey key2 = GlobalKey();
-  // GlobalKey key3 = GlobalKey();
-  // GlobalKey key4 = GlobalKey();
-  // GlobalKey key5 = GlobalKey();
 
   @override
   void initState() {
@@ -112,29 +105,35 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.grey[300],
-        floatingActionButton: MyFloatingActionButton(onPressed: createNewHabit),
-        body: ListView(
-          children: [
-            MonthlySummary(
-              datasets: db.heatMapDataSet,
-              startDate: _myBox.get("START_DATE"),
-            ),
-            ListView.builder(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              itemCount: db.todaysHabitList.length,
-              itemBuilder: (context, index) {
-                return HabitTile(
-                  habitName: db.todaysHabitList[index][0],
-                  habitCompleted: db.todaysHabitList[index][1],
-                  onChanged: (value) => checkBoxTapped(value, index),
-                  settingsTapped: (context) => openHabitSettings(index),
-                  deleteTapped: (context) => deleteHabit(index),
-                );
-              },
-            ),
-          ],
-        ));
+      backgroundColor: Colors.grey[300],
+      // floatingActionButton: ShowCaseView(
+      //     globalKey: key1,
+      //     title: 'Create Habits',
+      //     description: 'Tap the button to create your personalised habit.',
+      //     child: MyFloatingActionButton(onPressed: createNewHabit)),
+      body: ListView(
+        children: [
+          MonthlySummary(
+            datasets: db.heatMapDataSet,
+            startDate: _myBox.get("START_DATE"),
+          ),
+          ListView.builder(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemCount: db.todaysHabitList.length,
+            itemBuilder: (context, index) {
+              return HabitTile(
+                habitName: db.todaysHabitList[index][0],
+                habitCompleted: db.todaysHabitList[index][1],
+                onChanged: (value) => checkBoxTapped(value, index),
+                settingsTapped: (context) => openHabitSettings(index),
+                deleteTapped: (context) => deleteHabit(index),
+              );
+            },
+          ),
+        ],
+      ),
+      floatingActionButton: MyFloatingActionButton(onPressed: createNewHabit),
+    );
   }
 }

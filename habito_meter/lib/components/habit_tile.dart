@@ -3,6 +3,8 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+//import 'package:habito_meter/generated_routes.dart';
+//import 'package:habito_meter/pages/home_page.dart';
 
 class HabitTile extends StatelessWidget {
   final String habitName;
@@ -11,6 +13,9 @@ class HabitTile extends StatelessWidget {
   final Function(BuildContext)? settingsTapped;
   final Function(BuildContext)? deleteTapped;
 
+  //final GlobalKey key1;
+  //final GlobalKey key2;
+
   const HabitTile({
     super.key,
     required this.habitName,
@@ -18,6 +23,8 @@ class HabitTile extends StatelessWidget {
     required this.onChanged,
     required this.settingsTapped,
     required this.deleteTapped,
+    //required this.key1,
+    //required this.key2,
   });
 
   @override
@@ -40,28 +47,40 @@ class HabitTile extends StatelessWidget {
           )
         ]),
         child: Container(
-          padding: EdgeInsets.all(24),
+          padding: EdgeInsets.fromLTRB(24, 16, 24, 16),
           decoration: BoxDecoration(
               color: habitCompleted == true
                   ? Color.fromARGB(186, 253, 211, 84)
                   : Color.fromARGB(255, 255, 255, 255),
               borderRadius: BorderRadius.circular(12)),
-          child: Row(
-            children: [
-              Checkbox(
+          child: SizedBox(
+            //height: 35,
+            child: ListTile(
+              titleAlignment: ListTileTitleAlignment.center,
+              contentPadding: EdgeInsets.all(0),
+              //hoverColor: Colors.green[200],
+              horizontalTitleGap: 0,
+              //minVerticalPadding: 0,
+              leading: Checkbox(
                 value: habitCompleted,
                 onChanged: onChanged,
                 //onChanged: ColorSwatch: isSelected ? Colors.amber[200] : null,
                 //activeColor: Colors.white,
                 //checkColor: Colors.amber[200],
               ),
-              Text(habitName),
-              Spacer(),
-              Icon(
+
+              title: Flexible(
+                child: Text(
+                  habitName,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+              trailing: Icon(
                 EvaIcons.chevronLeftOutline,
+                //Align: Alignment.centerRight,
                 color: Colors.grey[800],
               ),
-            ],
+            ),
           ),
         ),
       ),

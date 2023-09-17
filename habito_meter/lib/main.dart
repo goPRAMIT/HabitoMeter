@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
         home: isViewed != 0 ? OnBoardingScreen() : HomePage(),
         theme: ThemeData(
           primarySwatch: Colors.amber,
-          textTheme: GoogleFonts.cutiveTextTheme(textTheme).copyWith(
+          textTheme: GoogleFonts.comfortaaTextTheme(textTheme).copyWith(
               bodyMedium:
                   GoogleFonts.comfortaa(textStyle: textTheme.bodyMedium)),
         ));

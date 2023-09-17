@@ -14,7 +14,11 @@ class MonthlySummary extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(top: 25, bottom: 25),
+      // decoration: BoxDecoration(
+      //     color: Colors.grey[400],
+      //     border: Border.all(),
+      //     borderRadius: BorderRadius.circular(20)),
+      padding: const EdgeInsets.all(25),
       child: HeatMapCalendar(
         initDate: createDateTimeObject(startDate),
         //initDate: DateTime.now(),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:habito_meter/intro_screens/intro_page_1.dart';
 import 'package:habito_meter/intro_screens/intro_page_2.dart';
 import 'package:habito_meter/intro_screens/intro_page_3.dart';
+import 'package:habito_meter/intro_screens/intro_page_4.dart';
 import 'package:habito_meter/pages/home_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 //import 'package:shared_preferences/shared_preferences.dart';
@@ -36,7 +37,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         PageView(
           onPageChanged: (index) {
             setState(() {
-              onLastPage = (index == 2);
+              onLastPage = (index == 3);
             });
           },
           controller: _controller,
@@ -44,6 +45,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             IntroPage1(),
             IntroPage2(),
             IntroPage3(),
+            IntroPage4(),
           ],
         ),
 
@@ -63,7 +65,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 //skip
                 GestureDetector(
                     onTap: () async {
-                      _controller.animateToPage(2,
+                      _controller.animateToPage(3,
                           duration: Duration(milliseconds: 500),
                           curve: Curves.easeIn);
                       await _storeOnBoardInfo();
@@ -91,7 +93,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
 
                 SmoothPageIndicator(
                   controller: _controller,
-                  count: 3,
+                  count: 4,
                   effect: ExpandingDotsEffect(
                     activeDotColor: Colors.amber,
                     dotColor: Colors.grey.shade200,

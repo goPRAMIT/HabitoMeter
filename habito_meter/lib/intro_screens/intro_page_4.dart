@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
-class IntroPage3 extends StatelessWidget {
-  const IntroPage3({super.key});
+class IntroPage4 extends StatelessWidget {
+  const IntroPage4({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class IntroPage3 extends StatelessWidget {
             padding: const EdgeInsets.fromLTRB(60, 150, 60, 40),
             child: Center(
                 child: Text(
-              'Swipe Left',
+              'Track your habits',
               style: TextStyle(
                   //fontFamily: 'GothamMedium',
                   fontSize: 22,
@@ -22,24 +22,23 @@ class IntroPage3 extends StatelessWidget {
             )),
           ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+            padding: const EdgeInsets.fromLTRB(0, 15, 0, 0),
             child: Lottie.asset(
-              'animations/sw.json',
+              'animations/3.json',
               repeat: true,
-              //fit: BoxFit.scaleDown,
             ),
           ),
-          Center(
-              child: Padding(
-            padding: const EdgeInsets.fromLTRB(60.0, 0.0, 60.0, 100.0),
-            child: Text(
-                'Swipe Left on your habits to modify them on the go! Now you can modify habits based upon your priority.',
-                style: TextStyle(
+          Padding(
+            padding: const EdgeInsets.fromLTRB(60, 95, 60, 60),
+            child: Center(
+                child: Text(
+              'Visualize your progress in the calendar. Habito makes it easy to see how you\'re doing and where you\'re headed.',
+              style: TextStyle(
                   //fontFamily: 'GothamMedium',
-                  fontSize: 15,
-                ),
-                textAlign: TextAlign.center),
-          )),
+                  fontSize: 15),
+              textAlign: TextAlign.center,
+            )),
+          ),
         ],
       ),
     );

@@ -31,25 +31,36 @@ class MyAlertBox extends StatelessWidget {
         ),
       ),
       actions: [
-        Row(
-          children: [
-            MaterialButton(
-              onPressed: onSave,
-              child: Text(
-                "Save",
-                style: TextStyle(color: Colors.white),
+        Padding(
+          padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              SizedBox(
+                width: 100,
+                child: MaterialButton(
+                  onPressed: onSave,
+                  child: Text(
+                    "Save",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  color: Colors.black,
+                ),
               ),
-              color: Colors.black,
-            ),
-            MaterialButton(
-              onPressed: onCancel,
-              child: Text(
-                "Cancel",
-                style: TextStyle(color: Colors.white),
+              //Spacer(),
+              SizedBox(
+                width: 100,
+                child: MaterialButton(
+                  onPressed: onCancel,
+                  child: Text(
+                    "Cancel",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  color: Colors.black,
+                ),
               ),
-              color: Colors.black,
-            ),
-          ],
+            ],
+          ),
         ),
         // MaterialButton(
         //   onPressed: onCancel,

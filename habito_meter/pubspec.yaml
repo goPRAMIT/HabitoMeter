@@ -21,10 +21,12 @@ dependencies:
   shared_preferences: ^2.2.0
   video_player: ^2.7.0
   tutorial_coach_mark: ^1.2.9
+  list_tile_more_customizable: ^3.0.0
+  showcaseview: ^2.0.3
 
 flutter_native_splash:
   color: "#000000"
-  animations: habito_meter\animations\finalLogo.json
+  animations: habito_meter\assets\H_LOGO.json
   
 fonts:
   - family: Gotham
