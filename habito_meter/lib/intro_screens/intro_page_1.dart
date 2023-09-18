@@ -29,6 +29,7 @@ class _IntroPage1State extends State<IntroPage1>
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[300],
+      //backgroundColor: Colors.black,
       body: ListView(
         children: [
           Padding(
@@ -36,8 +37,10 @@ class _IntroPage1State extends State<IntroPage1>
             child: Center(
                 child: Text(
               'Create new habits',
+              //'Habito',
               style: TextStyle(
                   //fontFamily: 'GothamMedium',
+                  //color: Colors.grey[400],
                   fontSize: 22,
                   fontWeight: FontWeight.bold),
             )),
